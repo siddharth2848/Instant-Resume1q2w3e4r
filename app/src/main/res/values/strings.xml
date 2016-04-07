@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Instant Resume</string>
+    <string name="action_settings">Settings</string>
+    <string name="tut1_header">Select Design</string>
+    <string name="tut2_header">Fill Details</string>
+    <string name="tut3_header">Share</string>
+
+    <string name="tut1_desc">Select the format for your Resume from the range of designs.</string>
+    <string name="tut2_desc">Choose to make a new one or Edit from the previous entries.</string>
+    <string name="tut3_desc">Ready! Time to mail</string>
+</resources>

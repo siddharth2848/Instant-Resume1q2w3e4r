@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/logo"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By Star Developers"
+        android:id="@+id/textView4"
+        android:textColor="#212338"
+        android:textSize="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Almost Done!"
+        android:textSize="35dp"
+        android:textColor="#212338"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generating Resume"
+        android:textSize="30dp"
+        android:alpha="0.8"
+        android:textColor="#212338"
+        android:id="@+id/textView6"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:id="@+id/progressBar"
+        android:layout_marginBottom="85dp"
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="false" />
+
+</RelativeLayout>
