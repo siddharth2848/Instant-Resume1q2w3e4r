@@ -28,7 +28,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class Camera extends AppCompatActivity {
-
+    //git testing
     Button b1, b2, b3;
     ImageView iv;
     ImageButton im;
