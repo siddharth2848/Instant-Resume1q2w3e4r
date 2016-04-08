@@ -9,6 +9,7 @@
     <string name="tut2_desc">Choose to make a new one or Edit from the previous entries.</string>
     <string name="tut3_desc">Ready! Time to mail</string>
 
-    <string name="bt1_det">Prevoius Entries</string>
+    <string name="bt1_det">Previous Entries</string>
     <string name="bt2_det">New Entry</string>
+    <string name="sex">Sex</string>
 </resources>
