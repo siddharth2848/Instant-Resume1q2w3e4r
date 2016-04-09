@@ -1,6 +1,7 @@
 package com.example.udeys.instantresume;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -63,11 +64,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id =  v.getId();
         switch (id){
             case R.id.sendEmail:
-                setContentView(R.layout.preview_main);
-                /*Intent in = new Intent(this , Splash.class);
-                in.putExtra("form_id" , id);
+                //setContentView(R.layout.preview_main);
+                Intent in = new Intent(this , Details.class);
+                //in.putExtra("form_id" , id);
                 startActivity(in);
-                */
+
 
 
                 break;

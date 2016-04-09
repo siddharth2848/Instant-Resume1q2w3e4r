@@ -1,6 +1,7 @@
 package com.example.udeys.instantresume;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,8 @@ public class Details extends Activity implements View.OnClickListener{
             case R.id.bt1_det:
                 break;
             case R.id.bt2_det:
+                Intent in = new Intent(this, FormPdf.class);
+                startActivity(in);
                 break;
         }
     }
