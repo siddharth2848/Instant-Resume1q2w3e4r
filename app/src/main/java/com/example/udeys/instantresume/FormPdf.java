@@ -47,11 +47,6 @@ public class FormPdf extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        name = e1.getText().toString();
-        fname = e2.getText().toString();
-        addr = e3.getText().toString();
-        email = e4.getText().toString();
-
         try {
             db = openOrCreateDatabase("PersonalInfo",SQLiteDatabase.CREATE_IF_NECESSARY,null);
             db.execSQL(create_tb);
@@ -62,14 +57,40 @@ public class FormPdf extends Activity implements View.OnClickListener{
         }
     }
 
+    public boolean validateData(){
+        name = e1.getText().toString();
+        fname = e2.getText().toString();
+        addr = e3.getText().toString();
+        email = e4.getText().toString();
+        boolean res = true;
+        if(name.equals("")){
+            res = false;
+            e1.setError("Field can't be empty");
+        }
+        if(fname.equals("")){
+            res = false;
+            e2.setError("Field can't be empty");
+        }
+        if(addr.equals("")){
+            res = false;
+            e3.setError("Field can't be empty");
+        }
+        if(email.equals("")){
+            res = false;
+            e4.setError("Field can't be empty");
+        }return res;
+    }
+
     public void saveData(View view){
         try{
-            values = new ContentValues();
-            values.put("Name",name);
-            values.put("F_Name",fname);
-            values.put("Email",email);
-            values.put("Address", addr);
-            Toast.makeText(this,"Inserted in DB",Toast.LENGTH_SHORT).show();
+            if(validateData() == true) {
+                values = new ContentValues();
+                values.put("Name", name);
+                values.put("F_Name", fname);
+                values.put("Email", email);
+                values.put("Address", addr);
+                Toast.makeText(this, "Inserted in DB", Toast.LENGTH_SHORT).show();
+            }
         }
         catch (Exception e){
             e.printStackTrace();

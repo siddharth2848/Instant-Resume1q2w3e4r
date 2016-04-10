@@ -28,7 +28,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class Camera extends AppCompatActivity {
-    //git testing
+
     Button b1, b2, b3;
     ImageView iv;
     ImageButton im;
@@ -69,6 +69,9 @@ public class Camera extends AppCompatActivity {
 
         Bitmap bp = (Bitmap) data.getExtras().get("data");
         bp = convertColorIntoBlackAndWhiteImage(bp);
+
+        compressImage(bp);
+
         iv.setImageBitmap(bp);
 
         b2.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +97,22 @@ public class Camera extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void compressImage(Bitmap bp){
+
+        int h=bp.getHeight();
+        int w=bp.getWidth();
+
+//depends on compression rate/file size/pixels (dynamic)
+//like inSampleSize in ur code
+        if( h > 2000)   h /= 2;
+        if( w > 2000)   w /= 2;
+
+        h=h/2;
+        w=w/2;
+
+        bp=Bitmap.createScaledBitmap(bp, w, h, true);
     }
 
     @Override
