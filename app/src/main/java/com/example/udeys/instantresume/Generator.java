@@ -6,26 +6,22 @@ package com.example.udeys.instantresume;
 * engine performs all backend work
 * loader is dummy.
 * */
-import android.app.Activity;
+
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.view.Menu;
-import android.content.Intent;
-import android.view.View;
-import android.os.Bundle;
-import android.app.Activity;
 
 /**
  * Created by udeys on 3/31/2016.
  */
-public class Generator extends Activity {
+public class Generator extends AppCompatActivity {
 
     ProgressBar spinner;
     int i = 0;
-    Intent intent = new Intent();
+   // Intent intent = getIntent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +31,16 @@ public class Generator extends Activity {
         spinner = (ProgressBar) findViewById(R.id.progressBar);
 
         //we've the image here
-        Bitmap bitmap = (Bitmap) intent.getParcelableExtra("BitmapImage");
+        //Bitmap bp = (Bitmap) intent.getParcelableExtra("BitmapImage");
 
 
         //send the image to the service
-        startService();
+        Intent serviceIntent = new Intent(getApplicationContext() , Engine.class);
+        //serviceIntent.putExtra("UserID", "123456");
+        //serviceIntent.putExtra("BitmapImage", bp);
+        getApplicationContext().startService(serviceIntent);
+
+
 
         //change activity when service has finished
         //PDF Resume is in the place
@@ -51,22 +52,23 @@ public class Generator extends Activity {
         * */
 
 
-        /*Thread t = new Thread(){
+        Thread t = new Thread(){
             public void run(){
                 try{
-                    sleep(4000);
+                    sleep(3000);
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext() , "Error!" + e.getMessage() , Toast.LENGTH_SHORT).show();
                 }
 
                 finally {
-                    Intent i = new Intent(getApplicationContext() , Tutorial1.class);
+                    Intent i = new Intent(getBaseContext() , MailSender.class);
                     startActivity(i);
+                    finish();
                 }
             }
         };
         t.start();
-*/
+
     }
 
     // Method to start the service
@@ -77,6 +79,7 @@ public class Generator extends Activity {
     // Method to stop the service
     public void stopService(View view) {
         stopService(new Intent(getBaseContext(), Engine.class));
+
     }
 
 

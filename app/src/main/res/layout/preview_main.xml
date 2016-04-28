@@ -11,7 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     >
 
-
     <Button
         android:layout_width="@dimen/fab_margin"
         android:layout_height="60dp"
@@ -39,13 +38,42 @@
             android:layout_height="match_parent"
             android:id="@+id/form1"
             android:fadingEdge="horizontal"
-            android:background="@drawable/share2_lt"
-            android:layout_alignParentTop="true"
+            android:background="@drawable/temp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp" />
+            android:layout_marginStart="25dp" /><![CDATA[
+
+        Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:id="@+id/cont"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
 
+    ]]>
     </RelativeLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#c0c0c0"
+        android:textColor="#ececec"
+        android:text="Continue"
+        android:id="@+id/cont"
+        android:layout_below="@+id/grid" />
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:background="#FF4500"
+        android:textColor="#ececec"
+        android:text="Back"
+        android:id="@+id/back"
+        android:layout_below="@+id/grid"
+        android:layout_toRightOf="@+id/cont"
+        android:layout_toEndOf="@+id/cont" />
 </RelativeLayout>

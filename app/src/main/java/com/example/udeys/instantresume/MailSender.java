@@ -10,24 +10,13 @@ package com.example.udeys.instantresume;
 
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -60,6 +49,7 @@ public class MailSender extends AppCompatActivity {
                 if(i == 1 ){
                     Intent fin = new Intent(getApplicationContext() , LastSplash.class);
                     startActivity(fin);
+                    finish();
                 }
             }
         });

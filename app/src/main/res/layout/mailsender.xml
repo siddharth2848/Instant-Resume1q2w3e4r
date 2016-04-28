@@ -18,6 +18,7 @@
         android:background="#212338"
         android:textColor="#ececec"
         android:text="Send"
+        android:inputType="textEmailAddress"
         android:id="@+id/sendEmail"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/grid"

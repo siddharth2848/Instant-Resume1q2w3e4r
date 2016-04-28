@@ -2,14 +2,9 @@ package com.example.udeys.instantresume;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +19,11 @@ public class Tutorial1 extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutorial1);
+
+        SharedPreferences sp = getSharedPreferences("user" , MODE_PRIVATE);
+        SharedPreferences.Editor ed = sp.edit();
+        ed.putString("used" , "1");
+        ed.commit();
 
         b1= (Button) findViewById(R.id.button);
 

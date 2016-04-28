@@ -2,14 +2,8 @@ package com.example.udeys.instantresume;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 /**
@@ -22,21 +16,47 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        Thread t = new Thread(){
-            public void run(){
-                try{
-                    sleep(4000);
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext() , "Error!" + e.getMessage() , Toast.LENGTH_SHORT).show();
-                }
+        SharedPreferences sp = getSharedPreferences("user", MODE_PRIVATE);
+        if(sp.contains("used")) {
+            Thread t = new Thread(){
+                public void run(){
+                    try{
+                        sleep(4000);
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext() , "Error!" + e.getMessage() , Toast.LENGTH_SHORT).show();
+                    }
 
-                finally {
-                    Intent i = new Intent(getApplicationContext() , Tutorial1.class);
-                    startActivity(i);
+                    finally {
+                        Intent i = new Intent(getApplicationContext() , MainActivity.class);
+                        startActivity(i);
+                        finish();
+                    }
                 }
-            }
-        };
-        t.start();
+            };
+            t.start();
+        }
+
+
+        else{
+            Thread t = new Thread(){
+                public void run(){
+                    try{
+                        sleep(4000);
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext() , "Error!" + e.getMessage() , Toast.LENGTH_SHORT).show();
+                    }
+
+                    finally {
+                        Intent i = new Intent(getApplicationContext() , Tutorial1.class);
+                        startActivity(i);
+                        finish();
+                    }
+                }
+            };
+            t.start();
+        }
+
+
 
     }
 

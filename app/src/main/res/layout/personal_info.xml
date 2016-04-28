@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
+
+   <include
+       android:id="@+id/app_bar"
+       layout="@layout/app_bar"/>
 
     <EditText
+        android:layout_below="@id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Name"
         android:ems="10"
         android:id="@+id/name"
-        android:layout_marginTop="60dp"
-        android:capitalize="words" />
+        android:textAllCaps="true"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -20,7 +24,8 @@
         android:inputType="textPersonName"
         android:hint="Father's Name"
         android:ems="10"
-        android:id="@+id/fname" />
+        android:id="@+id/fname"
+        android:textAllCaps="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -44,57 +49,21 @@
         android:inputType="number"
         android:ems="10"
         android:hint="Mobile No"
-        android:id="@+id/editText4"
-        android:digits="10"
-        android:numeric="signed"
+        android:id="@+id/mno"
+        android:digits="0123456789"
         android:phoneNumber="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/sex"
-        android:id="@+id/textView10" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_weight="0.23">
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male"
-                android:id="@+id/radioButton"
-                android:checked="true" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female"
-                android:id="@+id/radioButton2"
-                android:checked="false" />
-
-        </RadioGroup>
-    </RelativeLayout>
-
     <Button
-        android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:text="Next"
         android:id="@+id/next"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="150dp"
         android:background="#c0c0c0"
         android:textSize="20sp"
         android:textStyle="italic"
-        android:onClick="saveData" />
-
+        android:onClick="saveData"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom" />
 
 </LinearLayout>

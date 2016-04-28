@@ -18,35 +18,30 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 public class Camera extends AppCompatActivity {
 
     Button b1, b2, b3;
-    ImageView iv;
-    ImageButton im;
+    ImageView iv , cm;
+    Bitmap bp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
 
-        b1=(Button)findViewById(R.id.button);
+        b1=(Button)findViewById(R.id.sendEmail);
         b2=(Button)findViewById(R.id.button2);
         b3=(Button)findViewById(R.id.button3);
 
 
-        b2.setVisibility(View.GONE);
-        b3.setVisibility(View.GONE);
-
-        iv=(ImageView)findViewById(R.id.imageView15);
-        im = (ImageButton) findViewById(R.id.camera_logo);
+        //iv =(ImageView)findViewById(R.id.imageView15);
+        cm = (ImageView) findViewById(R.id.camera_logo);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,24 +51,6 @@ public class Camera extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
-        super.onActivityResult(requestCode, resultCode, data);
-
-        im.setVisibility(View.GONE);
-        b2.setVisibility(View.VISIBLE);
-        b3.setVisibility(View.VISIBLE);
-
-        Bitmap bp = (Bitmap) data.getExtras().get("data");
-        bp = convertColorIntoBlackAndWhiteImage(bp);
-
-        compressImage(bp);
-
-        iv.setImageBitmap(bp);
-
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,20 +59,31 @@ public class Camera extends AppCompatActivity {
             }
         });
 
-        final Bitmap finalBp = bp;
-
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                * All steps are done
-                * Taking the picture to next activity
-                * */
-                Intent intent = new Intent(getApplicationContext() , Generator.class);
-                intent.putExtra("BitmapImage", finalBp);
-                startActivity(intent);
+                Intent i = new Intent(getApplicationContext() , Generator.class);
+                i.putExtra("BitmapImage", bp);
+                startActivity(i);
+
             }
         });
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+
+        bp = (Bitmap) data.getExtras().get("data");
+        //bp = convertColorIntoBlackAndWhiteImage(bp);
+        iv.setVisibility(View.VISIBLE);
+        cm.setImageBitmap(bp);
+        cm.setVisibility(View.GONE);
+
+        b2.setVisibility(View.VISIBLE);
+        b3.setVisibility(View.VISIBLE);
+        b1.setVisibility(View.GONE);
+
 
     }
 

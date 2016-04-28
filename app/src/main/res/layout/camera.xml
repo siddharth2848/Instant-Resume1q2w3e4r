@@ -34,10 +34,11 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/sendEmail">
 
-        <ImageButton
+        <ImageView
             android:layout_width="200dp"
             android:layout_height="180dp"
             android:id="@+id/camera_logo"
+            android:visibility="visible"
             android:fadingEdge="horizontal"
             android:background="@drawable/camera"
             android:layout_centerVertical="true"
@@ -47,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/imageView15"
+            android:visibility="gone"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -58,6 +60,7 @@
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:text="Retake"
+        android:visibility="gone"
         android:id="@+id/button2"
         android:background="#212338"
         android:textColor="#ececec"
@@ -69,6 +72,7 @@
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:text="Done"
+        android:visibility="gone"
         android:id="@+id/button3"
         android:background="#212338"
         android:textColor="#ececec"
