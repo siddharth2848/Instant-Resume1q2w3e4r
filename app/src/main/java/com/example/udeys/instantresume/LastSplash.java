@@ -8,6 +8,7 @@ import android.widget.Toast;
 /**
  * Created by udeys on 3/31/2016.
  */
+
 public class LastSplash extends Activity {
 
     @Override
@@ -26,6 +27,7 @@ public class LastSplash extends Activity {
                 finally {
                     Intent i = new Intent(getApplicationContext() , MainActivity.class);
                     startActivity(i);
+                    finish();
                 }
             }
         };

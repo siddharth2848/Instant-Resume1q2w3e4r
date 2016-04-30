@@ -36,5 +36,6 @@ public class Tutorial1 extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         Intent i = new Intent(this , Tutorial2.class);
         startActivity(i);
+        finish();
     }
 }

@@ -23,12 +23,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Camera extends AppCompatActivity {
 
     Button b1, b2, b3;
     ImageView iv , cm;
     Bitmap bp;
+    String name,date;
+    ArrayList<String> info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,7 @@ public class Camera extends AppCompatActivity {
         b3=(Button)findViewById(R.id.button3);
 
 
-        //iv =(ImageView)findViewById(R.id.imageView15);
+        iv =(ImageView)findViewById(R.id.imageView15);
         cm = (ImageView) findViewById(R.id.camera_logo);
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -62,9 +67,21 @@ public class Camera extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext() , Generator.class);
-                i.putExtra("BitmapImage", bp);
-                startActivity(i);
+                try {
+
+                    Intent in = getIntent();
+                    info = new ArrayList<>();
+                    info = in.getStringArrayListExtra("Final");
+                    name = info.get(0);
+                    Intent i = new Intent(getApplicationContext(), Generator.class);
+                    i.putExtra("NAME",name);
+                    i.putExtra("BitmapImage" , bp);
+                    i.putExtra("Data",info);
+                    startActivity(i);
+                    finish();
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext() , "Error:"+e.getMessage() , Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -77,7 +94,7 @@ public class Camera extends AppCompatActivity {
         bp = (Bitmap) data.getExtras().get("data");
         //bp = convertColorIntoBlackAndWhiteImage(bp);
         iv.setVisibility(View.VISIBLE);
-        cm.setImageBitmap(bp);
+        iv.setImageBitmap(bp);
         cm.setVisibility(View.GONE);
 
         b2.setVisibility(View.VISIBLE);

@@ -18,16 +18,7 @@
         android:textAllCaps="true"
         android:layout_marginTop="10dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Father's Name"
-        android:ems="10"
-        android:id="@+id/fname"
-        android:textAllCaps="true" />
-
-    <EditText
+ <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
@@ -35,30 +26,62 @@
         android:hint="Email"
         android:id="@+id/email" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:hint="Address"
-        android:id="@+id/addr" />
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:inputType="number"
+     android:ems="10"
+     android:hint="Mobile No"
+     android:id="@+id/mno"
+     android:digits="0123456789"
+     android:phoneNumber="true" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:hint="Mobile No"
-        android:id="@+id/mno"
-        android:digits="0123456789"
-        android:phoneNumber="true" />
 
-    <Button
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:textAppearance="?android:attr/textAppearanceLarge"
+     android:text="Address"
+     android:id="@+id/textView10" />
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:inputType="textPostalAddress"
+     android:ems="10"
+     android:hint="Flat No."
+     android:id="@+id/flat" />
+
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:inputType="textPersonName"
+     android:hint="City"
+     android:ems="10"
+     android:id="@+id/city"
+     android:textAllCaps="true" />
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:inputType="textPersonName"
+     android:hint="State"
+     android:ems="10"
+     android:id="@+id/state"
+     android:textAllCaps="true" />
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:inputType="textPersonName"
+     android:hint="Country"
+     android:ems="10"
+     android:id="@+id/country"
+     android:textAllCaps="true" />
+
+ <Button
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Next"
         android:id="@+id/next"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="62dp"
         android:background="#c0c0c0"
         android:textSize="20sp"
         android:textStyle="italic"

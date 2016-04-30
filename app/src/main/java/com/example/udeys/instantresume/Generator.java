@@ -11,8 +11,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by udeys on 3/31/2016.
@@ -21,23 +25,33 @@ public class Generator extends AppCompatActivity {
 
     ProgressBar spinner;
     int i = 0;
-   // Intent intent = getIntent();
-
+    String name,date;
+    Bitmap bp = null;
+    ArrayList<String> info;
+    public ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.generator);
 
+        iv = (ImageView) findViewById(R.id.ivv);
+
         spinner = (ProgressBar) findViewById(R.id.progressBar);
-
-        //we've the image here
-        //Bitmap bp = (Bitmap) intent.getParcelableExtra("BitmapImage");
-
+        try {
+            Intent intent = getIntent();
+            info = intent.getStringArrayListExtra("Data");
+            bp = (Bitmap) intent.getParcelableExtra("BitmapImage");
+            name = info.get(0);
+           // Toast.makeText(getApplicationContext() , "name:"+name , Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            //Toast.makeText(getApplicationContext() , "Error:"+e.getMessage() , Toast.LENGTH_SHORT).show();
+        }
 
         //send the image to the service
         Intent serviceIntent = new Intent(getApplicationContext() , Engine.class);
         //serviceIntent.putExtra("UserID", "123456");
-        //serviceIntent.putExtra("BitmapImage", bp);
+        serviceIntent.putStringArrayListExtra("Data",info);
+        serviceIntent.putExtra("BitmapImage", bp);
         getApplicationContext().startService(serviceIntent);
 
 
@@ -55,13 +69,14 @@ public class Generator extends AppCompatActivity {
         Thread t = new Thread(){
             public void run(){
                 try{
-                    sleep(3000);
+                    sleep(6000);
                 }catch (Exception e){
-                    Toast.makeText(getApplicationContext() , "Error!" + e.getMessage() , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext() , "Error!" + e.getMessage() , Toast.LENGTH_SHORT).show();
                 }
 
                 finally {
-                    Intent i = new Intent(getBaseContext() , MailSender.class);
+                    Intent i = new Intent(getApplicationContext() , MailSender.class);
+                    i.putExtra("NAME",name);
                     startActivity(i);
                     finish();
                 }

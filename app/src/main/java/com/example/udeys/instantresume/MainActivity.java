@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.graphics.drawable.GradientDrawable;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button b1,b2,b3;
     int tmplt_id;
+    GradientDrawable gd = new GradientDrawable();
     ImageButton im1,im2;
     RelativeLayout l1,l2;
     int i = 0;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
@@ -90,6 +92,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             default:
                 tmplt_id = id;
+                if(tmplt_id == R.id.form1) {
+                    //gd.setColor(0x0000FF00); // Changes this drawbale to use a single color instead of a gradient
+                    /*gd.setCornerRadius(5);
+                    gd.setStroke(5, 0xFF212338);
+                    im1.setBackgroundDrawable(gd);*/
+
+                    im2.setAlpha(0.6f);
+                    im1.setAlpha(1.0f);
+                }
+                else{
+                    im1.setAlpha(0.6f);
+                    im2.setAlpha(1.0f);
+                }
                 b1.setOnClickListener(this);
                 b1.setText("Select");
                 //b1.setBackground(Drawable.createFromPath("@colors/colorTheme"));

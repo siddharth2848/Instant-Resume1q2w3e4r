@@ -56,4 +56,12 @@
         android:layout_centerHorizontal="true"
         android:indeterminate="false" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivv"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignRight="@+id/progressBar"
+        android:layout_alignEnd="@+id/progressBar" />
+
 </RelativeLayout>

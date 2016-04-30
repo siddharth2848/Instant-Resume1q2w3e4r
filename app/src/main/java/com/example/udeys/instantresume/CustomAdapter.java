@@ -1,6 +1,7 @@
 package com.example.udeys.instantresume;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +17,16 @@ import java.util.ArrayList;
 public class CustomAdapter extends ArrayAdapter<String> {
 
     ArrayList<String> names;
-    ArrayList<String> dates;
+    ArrayList<Bitmap> images;
     Context context;
-    public CustomAdapter(Context context, ArrayList<String> names, ArrayList<String> dates){
+    public CustomAdapter(Context context, ArrayList<String> names, ArrayList<Bitmap> images){
         super(context,R.layout.custom_row,names);
         this.context = context;
         this.names = names;
-        this.dates = dates;
+        this.images = images;
     }
+
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -31,13 +34,11 @@ public class CustomAdapter extends ArrayAdapter<String> {
         View customView = listInflater.inflate(R.layout.custom_row,parent,false);
 
         String singleName = getItem(position);
-        //String singleDate = getItem(dates.get(position));
         TextView tv = (TextView) customView.findViewById(R.id.custext);
-        TextView tv1 = (TextView) customView.findViewById(R.id.cusdate);
         ImageView iv = (ImageView) customView.findViewById(R.id.cusimg);
         tv.setText(singleName);
-        //tv1.setText(dates.get(position));
-        iv.setImageResource(R.drawable.circle_em);
+        iv.setImageResource(R.drawable.classprofile);
+        //iv.setImageBitmap(images.get(position));
 
         return customView;
     }
