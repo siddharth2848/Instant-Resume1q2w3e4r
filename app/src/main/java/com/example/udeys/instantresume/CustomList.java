@@ -62,7 +62,7 @@ public class CustomList extends AppCompatActivity {
                     String email = "";
                     String addr = "";
                     int mob = 0;
-                    data.add(name);
+
 
                     while (!cur.isAfterLast()){
                         data.add(cur.getString(1));
@@ -84,7 +84,7 @@ public class CustomList extends AppCompatActivity {
                         data.add(cur.getString(17));
                         data.add(cur.getString(18));
                         data.add(cur.getString(19));
-
+                        data.add(cur.getString(20));
 
                         /*fname = cur.getString(2);
                         email = cur.getString(3);

@@ -150,22 +150,32 @@ public class Engine extends Service {
         byte[] im = bos.toByteArray();
 
         try {
-            PdfReader reader = new PdfReader(getResources().openRawResource(R.raw.final_temp));
+            PdfReader reader = new PdfReader(getResources().openRawResource(R.raw.udey_basic));
             //PdfWriter.getInstance(document, new FileOutputStream(file));
             PdfStamper stamp = new PdfStamper(reader, new FileOutputStream(file));
+            PdfContentByte content = stamp.getOverContent(reader.getNumberOfPages());
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            Image image = Image.getInstance(byteArray);
             document.setPageSize(one);
             document.open();
             AcroFields form = stamp.getAcroFields();
             // Toast.makeText(this, "try startt", Toast.LENGTH_SHORT).show();
 
+            image.setAbsolutePosition(450,650);
+            image.scaleAbsolute(200,200);
+            content.addImage(image);
+
 
             //  Address
+
             form.setField("Text Box 1", info.get(3));
             form.setField("Text Box 2", info.get(4));
             form.setField("Text Box 3", info.get(5));
             form.setField("Text Box 4", info.get(6));
 
-
+/*
             // Contact
             form.setField("Text Box 5", info.get(2));
             form.setField("Text Box 6", info.get(1));
@@ -192,8 +202,7 @@ public class Engine extends Service {
             //  Training
             form.setField("Text Box 18", info.get(17));
             form.setField("Text Box 19", info.get(18));
-            form.setField("Text Box 20", info.get(19));
-
+            form.setField("Text Box 20", info.get(19));*/
             stamp.close();
             reader.close();
             document.close();
